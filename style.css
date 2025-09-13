@@ -40,8 +40,9 @@ a:hover{ opacity:.85; }
 }
 .hero.image{
   position:relative;
-  background-image: url('assets/hero-autoparts.webp'); /* ЗАГРУЗИ этот файл */
-  background-size: cover; background-position: center;
+  background-image: url('assets/hero-autoparts.png'); /* теперь .png и без /icons */
+  background-size: cover;
+  background-position: center;
 }
 .hero.image::before{
   content:""; position:absolute; inset:0;
