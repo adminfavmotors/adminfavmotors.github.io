@@ -131,6 +131,14 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+      // тень для шапки при прокрутке
+  const nav = document.querySelector('.nav');
+  const setNavShadow = () => {
+    if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  };
+  setNavShadow();
+  window.addEventListener('scroll', setNavShadow);
+
   </script>
 </body>
 </html>
