@@ -164,3 +164,4 @@ a:hover{ opacity:.85; }
 @media (max-width: 480px){
   .offer-card{ flex-basis: 84vw; }
 }
+.social-img { width:20px; height:20px; display:block; }
