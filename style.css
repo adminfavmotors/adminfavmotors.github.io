@@ -1,10 +1,10 @@
-/* ====== ПАЛИТРА FAVMOTORS ====== */
+/* ===== ПАЛИТРА FAVMOTORS ===== */
 :root{
   --brand:#1b191a;   /* тёмный */
   --taupe:#827468;   /* тёплый серо-коричневый */
   --brown:#62341a;   /* коричневый */
   --accent:#d5612b;  /* оранжевый акцент */
-  --sand:#ecdfd4;    /* песочный/фоновый */
+  --sand:#ecdfd4;    /* песочный фон секций */
   --muted:#6b6b6b;
   --bg:#ffffff; --bg-soft:#f7f7f8; --line:#ececec;
 }
@@ -19,34 +19,56 @@ body{
 a{ color:inherit; text-decoration:none; }
 a:hover{ opacity:.85; }
 
-/* ====== ШАПКА ====== */
+/* ===== ШАПКА / МЕНЮ ===== */
 .nav{
-  position:sticky; top:0; z-index:50;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 20px; background:rgba(255,255,255,.92);
+  position:sticky; top:0; z-index:60;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 16px; background:rgba(255,255,255,.94);
   backdrop-filter:saturate(180%) blur(10px);
   border-bottom:1px solid var(--line);
-  transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
+  transition: box-shadow .2s ease, background .2s ease;
 }
-.nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.06); border-color:#e6e6e6; background:rgba(255,255,255,.96); }
-.logo{ font-weight:800; letter-spacing:.08em; color:var(--brand); }
-.nav nav a{ margin-left:18px; font-size:16px; color:#222; }
+.nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.06); }
 
-/* ====== HERO с фон-картинкой ====== */
+.brand-link{ display:flex; align-items:center; gap:10px; }
+.brand-logo{ height:40px; width:auto; display:block; } /* подгон по твоему логотипу */
+
+.menu{ display:flex; gap:18px; align-items:center; }
+.menu a{ color:#222; font-size:16px; }
+
+/* Бургер */
+.burger{
+  display:none; width:40px; height:40px; border:1px solid var(--line);
+  border-radius:10px; background:#fff; cursor:pointer;
+  align-items:center; justify-content:center; gap:4px; flex-direction:column;
+}
+.burger span{ display:block; width:18px; height:2px; background:#222; }
+
+/* Мобильное меню (выпадающее) */
+@media (max-width: 860px){
+  .burger{ display:flex; }
+  .menu{
+    position:absolute; top:100%; left:0; right:0; background:#fff;
+    border-bottom:1px solid var(--line); display:none; flex-direction:column;
+    padding:10px 16px; gap:12px;
+  }
+  .menu.open{ display:flex; }
+}
+
+/* ===== HERO с фоном ===== */
 .hero{
   min-height:72vh; display:grid; place-items:center; text-align:center;
   padding:84px 20px 64px; border-bottom:1px solid var(--line);
-  background: linear-gradient(#ffffff,#ffffff); /* фоллбек */
+  background: #fff; /* фоллбек */
 }
 .hero.image{
   position:relative;
-  background-image: url('assets/hero-autoparts.png'); /* теперь .png и без /icons */
-  background-size: cover;
-  background-position: center;
+  background-image: url('assets/hero-autoparts.png');  /* твой файл */
+  background-size: cover; background-position: center;
 }
 .hero.image::before{
   content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(27,25,26,.35), rgba(27,25,26,.15) 40%, rgba(255,255,255,.0) 70%);
+  background: linear-gradient(180deg, rgba(27,25,26,.40), rgba(27,25,26,.15) 45%, rgba(255,255,255,.0) 70%);
 }
 .hero-inner{ position:relative; z-index:1; }
 .hero-inner h1{
@@ -62,7 +84,7 @@ a:hover{ opacity:.85; }
 .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
 .link{ align-self:center; padding:12px 8px; color:#fff; }
 
-/* ====== СЕКЦИИ / КАРТОЧКИ ====== */
+/* ===== СЕКЦИИ / КАРТОЧКИ ===== */
 .section{ padding:80px 20px; max-width:1100px; margin:0 auto; }
 .section h2{ font-size:34px; text-align:center; margin:0 0 24px; color:var(--brand); }
 .section + .section{ border-top:1px solid var(--line); }
@@ -77,7 +99,7 @@ a:hover{ opacity:.85; }
 .card h3{ margin:0 0 8px; font-size:20px; color:var(--taupe); }
 .card p{ margin:0; color:#333; line-height:1.6; }
 
-/* ====== OFERTY (серый фон секции) ====== */
+/* ===== OFERTY ===== */
 .section-wrap-alt{ background:var(--sand); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .alt{ background:transparent; }
 
@@ -89,19 +111,23 @@ a:hover{ opacity:.85; }
 .car-track::-webkit-scrollbar{ height:8px; }
 .car-track::-webkit-scrollbar-thumb{ background:#d9d2c8; border-radius:8px; }
 
+/* карточка */
 .offer-card{
-  flex:0 0 320px; scroll-snap-align:start;
+  flex:0 0 300px; scroll-snap-align:start;
   border:1px solid var(--line); border-radius:16px; background:#fff; overflow:hidden;
   transition:transform .2s ease, box-shadow .2s ease, border-color .2s;
 }
 .offer-card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.06); border-color:#e6e6e6; }
-.ph{ width:100%; height:180px; background:linear-gradient(135deg,#f7f7f7,#efefef); }
+.preview{ width:100%; background:#f2f2f2; border-bottom:1px solid var(--line); display:grid; place-items:center; }
+.preview img{ width:100%; height:100%; object-fit:contain; }
+.preview.square{  aspect-ratio: 1 / 1; }
+.preview.portrait{aspect-ratio: 3 / 4; }
 
 .offer-info{ padding:14px 16px; display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
 .offer-name{ font-size:16px; font-weight:600; color:#222; }
 .offer-price{ font-size:16px; font-weight:800; color:var(--accent); }
 
-/* Кнопки листания */
+/* кнопки */
 .car-btn{
   position:absolute; top:50%; transform:translateY(-50%);
   width:36px; height:36px; border-radius:50%;
@@ -113,64 +139,50 @@ a:hover{ opacity:.85; }
 .car-btn.prev{ left: 6px; }
 .car-btn.next{ right:6px; }
 
-/* ====== JAK ZAMÓWIĆ с цветными иконками ====== */
-.steps-grid{
-  display:grid; gap:18px; grid-template-columns:repeat(2,1fr); margin-top:10px;
-}
+/* ===== Jak zamówić (цветные метки) ===== */
+.steps-grid{ display:grid; gap:18px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
 .step{ display:flex; gap:14px; align-items:flex-start; }
-.icon-circle{
-  width:40px; height:40px; border-radius:999px; display:inline-grid; place-items:center;
-  flex:0 0 40px;
-}
-.icon-circle svg{ width:22px; height:22px; color:#fff; }
-.i1{ background:var(--accent); } /* контакт */
-.i2{ background:var(--taupe); }  /* VIN */
-.i3{ background:var(--brown); }  /* wycena */
-.i4{ background:var(--brand); }  /* dostawa */
-
+.icon-circle{ width:40px; height:40px; border-radius:999px; display:inline-block; }
+.i1{ background:var(--accent); }
+.i2{ background:var(--taupe); }
+.i3{ background:var(--brown); }
+.i4{ background:var(--brand); }
 .muted{ color:var(--muted); }
 
-/* ====== СОЦСЕТИ и КОНТАКТЫ ====== */
-.social{
-  display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:6px;
-}
+/* ===== Соцсети и Контакты ===== */
+.social{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:6px; }
 .social-link{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:10px 14px; border:1px solid var(--line); border-radius:12px; background:#fff;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s;
+  display:inline-flex; align-items:center; gap:12px;
+  padding:12px 16px; border:1px solid var(--line); border-radius:14px; background:#fff;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s; font-size:17px;
 }
 .social-link:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.06); border-color:#e6e6e6; }
-.social-ico{ width:18px; height:18px; color:var(--brand); }
+.social-img{ width:28px; height:28px; display:block; }
 
-.contact-grid{
-  display:grid; gap:14px; grid-template-columns:repeat(2,1fr); margin-top:10px;
-}
+.contact-grid{ display:grid; gap:14px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
 .c-item{ display:flex; gap:12px; align-items:flex-start; }
-.c-ico{ width:28px; height:28px; color:var(--accent); display:inline-grid; place-items:center; }
-.c-ico svg{ width:20px; height:20px; }
-
-/* ====== ФУТЕР ====== */
+.c-ico{ width:28px; height:28px; display:inline-grid; place-items:center; color:var(--accent); }
 #contact p{ margin:6px 0; font-size:18px; }
+
+/* ===== Footer ===== */
 .footer{
   text-align:center; padding:28px 20px; color:#666;
   background:var(--bg-soft); border-top:1px solid var(--line);
 }
 
-/* ====== АДАПТИВ ====== */
-@media (max-width: 1000px){
+/* ===== АДАПТИВ ===== */
+@media (max-width:1000px){
   .grid{ grid-template-columns:1fr; }
   .steps-grid{ grid-template-columns:1fr; }
 }
-@media (max-width: 480px){
-  .offer-card{ flex-basis: 84vw; }
+@media (max-width:700px){
+  /* один слайд на экране */
+  .car-track{ gap:0; padding:0; }
+  .offer-card{ flex:0 0 100%; scroll-snap-align:center; }
+  .car-btn{ display:none; } /* стрелки прячем на мобиле */
+  /* контакты столбцом */
+  .contact-grid{ grid-template-columns:1fr; }
 }
-.social-img { width:20px; height:20px; display:block; }
-/* ===== Соцсети: крупнее иконки и кнопки ===== */
-.social-img { width: 28px; height: 28px; display: block; }
-
-.social .social-link {
-  gap: 12px;               /* больше расстояние между иконкой и текстом */
-  padding: 12px 16px;      /* кнопка повыше и пошире */
-  font-size: 17px;         /* текст чуть крупнее */
-  border-radius: 14px;     /* мяглее форма */
+@media (max-width:480px){
+  .brand-logo{ height:36px; }
 }
