@@ -22,24 +22,28 @@ a:hover{ opacity:.85; }
 /* ===== ШАПКА / МЕНЮ (тёмная) ===== */
 .nav{
   position:sticky; top:0; z-index:60;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:10px 16px;                 /* компактнее, как обсуждали */
   background:#1b191a;
   border-bottom:1px solid rgba(255,255,255,.08);
   backdrop-filter:saturate(180%) blur(8px);
   transition: box-shadow .2s ease, background .2s ease;
 }
+/* внутренняя «рамка» для выравнивания контента */
+.nav-inner{
+  max-width:1160px; margin:0 auto;
+  padding:10px 16px;
+  display:flex; align-items:center; gap:24px;
+}
 .nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.18); }
 
-.brand-link{ display:flex; align-items:center; gap:10px; }
-/* ==== ЛОГО В ШАПКЕ (SVG без фона) ==== */
+.brand-link{ display:flex; align-items:center; }
 .brand-logo{
-  height: clamp(72px, 12vw, 120px);  /* мобайл ~72px → десктоп до 120px */
-  width: auto;
-  display: block;
+  /* SVG без фона: адаптивно, но с ограничениями, чтобы не «лопалась» шапка */
+  height: clamp(56px, 9vw, 88px);
+  width:auto; display:block; background:transparent;
 }
 
-.menu{ display:flex; gap:22px; align-items:center; }
+/* меню прижимаем вправо */
+.menu{ margin-left:auto; display:flex; gap:22px; align-items:center; }
 .menu a{ color:#fff; font-size:18px; font-weight:700; letter-spacing:.01em; }
 .menu a:hover{ opacity:.8; }
 
