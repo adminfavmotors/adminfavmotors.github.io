@@ -1,4 +1,4 @@
-/* ===== ПАЛИТРА FAVMOTORS ===== */
+/* ===== ПАЛИТРА ===== */
 :root{
   --brand:#1b191a;   /* тёмный */
   --taupe:#827468;   /* тёплый серо-коричневый */
@@ -19,51 +19,53 @@ body{
 a{ color:inherit; text-decoration:none; }
 a:hover{ opacity:.85; }
 
-/* ===== ШАПКА / МЕНЮ ===== */
+/* ===== ШАПКА / МЕНЮ (тёмная) ===== */
 .nav{
   position:sticky; top:0; z-index:60;
   display:flex; align-items:center; justify-content:space-between;
-  padding:12px 16px; background:rgba(255,255,255,.94);
-  backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--line);
+  padding:12px 16px;
+  background:#1b191a;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  backdrop-filter:saturate(180%) blur(8px);
   transition: box-shadow .2s ease, background .2s ease;
 }
-.nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.06); }
+.nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.18); }
 
 .brand-link{ display:flex; align-items:center; gap:10px; }
-.brand-logo{ height:40px; width:auto; display:block; } /* подгон по твоему логотипу */
+.brand-logo{ height:52px; width:auto; display:block; } /* заметный логотип */
 
-.menu{ display:flex; gap:18px; align-items:center; }
-.menu a{ color:#222; font-size:16px; }
+.menu{ display:flex; gap:22px; align-items:center; }
+.menu a{ color:#fff; font-size:18px; font-weight:700; letter-spacing:.01em; }
+.menu a:hover{ opacity:.8; }
 
 /* Бургер */
 .burger{
-  display:none; width:40px; height:40px; border:1px solid var(--line);
-  border-radius:10px; background:#fff; cursor:pointer;
-  align-items:center; justify-content:center; gap:4px; flex-direction:column;
+  display:none; width:44px; height:44px; border:1px solid rgba(255,255,255,.18);
+  border-radius:10px; background:transparent; cursor:pointer;
+  align-items:center; justify-content:center; gap:5px; flex-direction:column;
 }
-.burger span{ display:block; width:18px; height:2px; background:#222; }
+.burger span{ display:block; width:20px; height:2px; background:#fff; }
 
-/* Мобильное меню (выпадающее) */
+/* Выпадающее меню на мобиле (тёмное) */
 @media (max-width: 860px){
   .burger{ display:flex; }
   .menu{
-    position:absolute; top:100%; left:0; right:0; background:#fff;
-    border-bottom:1px solid var(--line); display:none; flex-direction:column;
-    padding:10px 16px; gap:12px;
+    position:absolute; top:100%; left:0; right:0; background:#1b191a;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:none; flex-direction:column; padding:12px 16px; gap:14px;
   }
   .menu.open{ display:flex; }
 }
 
-/* ===== HERO с фоном ===== */
+/* ===== HERO (фон) ===== */
 .hero{
   min-height:72vh; display:grid; place-items:center; text-align:center;
   padding:84px 20px 64px; border-bottom:1px solid var(--line);
-  background: #fff; /* фоллбек */
+  background:#fff;
 }
 .hero.image{
   position:relative;
-  background-image: url('assets/hero-autoparts.png');  /* твой файл */
+  background-image: url('assets/hero-autoparts.png'); /* загрузи этот файл */
   background-size: cover; background-position: center;
 }
 .hero.image::before{
@@ -73,18 +75,18 @@ a:hover{ opacity:.85; }
 .hero-inner{ position:relative; z-index:1; }
 .hero-inner h1{
   color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.25);
-  font-size: clamp(34px, 6vw, 64px); letter-spacing:-0.02em; margin:0 0 12px;
+  font-size: clamp(36px, 6.4vw, 68px); font-weight:800; letter-spacing:-0.02em; margin:0 0 12px;
 }
 .sub{ font-size:20px; color:#f5f5f5; margin:0 0 24px; text-shadow:0 1px 2px rgba(0,0,0,.2); }
 .cta{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 .btn{
-  padding:12px 20px; border-radius:12px; background:var(--accent); color:#fff; font-weight:700;
+  padding:12px 20px; border-radius:12px; background:var(--accent); color:#fff; font-weight:800;
   transition:transform .2s ease, box-shadow .2s ease;
 }
 .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
 .link{ align-self:center; padding:12px 8px; color:#fff; }
 
-/* ===== СЕКЦИИ / КАРТОЧКИ ===== */
+/* ===== СЕКЦИИ ===== */
 .section{ padding:80px 20px; max-width:1100px; margin:0 auto; }
 .section h2{ font-size:34px; text-align:center; margin:0 0 24px; color:var(--brand); }
 .section + .section{ border-top:1px solid var(--line); }
@@ -92,8 +94,7 @@ a:hover{ opacity:.85; }
 .grid{ display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
 .card{
   padding:22px; border:1px solid var(--line); border-radius:16px; background:#fff;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s;
-  text-align:center;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s; text-align:center;
 }
 .card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.06); border-color:#e6e6e6; }
 .card h3{ margin:0 0 8px; font-size:20px; color:var(--taupe); }
@@ -111,7 +112,6 @@ a:hover{ opacity:.85; }
 .car-track::-webkit-scrollbar{ height:8px; }
 .car-track::-webkit-scrollbar-thumb{ background:#d9d2c8; border-radius:8px; }
 
-/* карточка */
 .offer-card{
   flex:0 0 300px; scroll-snap-align:start;
   border:1px solid var(--line); border-radius:16px; background:#fff; overflow:hidden;
@@ -124,22 +124,20 @@ a:hover{ opacity:.85; }
 .preview.portrait{aspect-ratio: 3 / 4; }
 
 .offer-info{ padding:14px 16px; display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
-.offer-name{ font-size:16px; font-weight:600; color:#222; }
+.offer-name{ font-size:16px; font-weight:700; color:#222; }
 .offer-price{ font-size:16px; font-weight:800; color:var(--accent); }
 
-/* кнопки */
 .car-btn{
   position:absolute; top:50%; transform:translateY(-50%);
   width:36px; height:36px; border-radius:50%;
   border:1px solid #e6e6e6; background:#fff; color:#222;
-  display:grid; place-items:center; cursor:pointer;
-  box-shadow:0 6px 14px rgba(0,0,0,.06);
+  display:grid; place-items:center; cursor:pointer; box-shadow:0 6px 14px rgba(0,0,0,.06);
 }
 .car-btn:hover{ background:#f8f8f8; }
 .car-btn.prev{ left: 6px; }
 .car-btn.next{ right:6px; }
 
-/* ===== Jak zamówić (цветные метки) ===== */
+/* ===== Jak zamówić ===== */
 .steps-grid{ display:grid; gap:18px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
 .step{ display:flex; gap:14px; align-items:flex-start; }
 .icon-circle{ width:40px; height:40px; border-radius:999px; display:inline-block; }
@@ -149,7 +147,7 @@ a:hover{ opacity:.85; }
 .i4{ background:var(--brand); }
 .muted{ color:var(--muted); }
 
-/* ===== Соцсети и Контакты ===== */
+/* ===== Social / Kontakt ===== */
 .social{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:6px; }
 .social-link{
   display:inline-flex; align-items:center; gap:12px;
@@ -164,10 +162,10 @@ a:hover{ opacity:.85; }
 .c-ico{ width:28px; height:28px; display:inline-grid; place-items:center; color:var(--accent); }
 #contact p{ margin:6px 0; font-size:18px; }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 .footer{
-  text-align:center; padding:28px 20px; color:#666;
-  background:var(--bg-soft); border-top:1px solid var(--line);
+  text-align:center; padding:28px 20px; color:#ccc;
+  background:#1b191a; border-top:1px solid rgba(255,255,255,.08);
 }
 
 /* ===== АДАПТИВ ===== */
@@ -179,10 +177,10 @@ a:hover{ opacity:.85; }
   /* один слайд на экране */
   .car-track{ gap:0; padding:0; }
   .offer-card{ flex:0 0 100%; scroll-snap-align:center; }
-  .car-btn{ display:none; } /* стрелки прячем на мобиле */
-  /* контакты столбцом */
+  .car-btn{ display:none; }
+  /* контакты — в столбик */
   .contact-grid{ grid-template-columns:1fr; }
 }
 @media (max-width:480px){
-  .brand-logo{ height:36px; }
+  .brand-logo{ height:44px; }
 }
