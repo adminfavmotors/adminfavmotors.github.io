@@ -11,64 +11,42 @@
 </head>
 <body>
 
-  <!-- SVG-спрайт (иконки) -->
-  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-    <symbol id="i-phone" viewBox="0 0 24 24">
-      <path d="M6.5 3h11a1.5 1.5 0 0 1 1.5 1.5v15A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-15A1.5 1.5 0 0 1 6.5 3zM9 5.5h6M12 18.5h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24">
-      <path d="M3.5 6.5h17v11h-17zM3.8 7l8.2 6 8.2-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24">
-      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm6.25-1.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1z" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-facebook" viewBox="0 0 24 24">
-      <path d="M13 22v-9h3l1-4h-4V7a1 1 0 0 1 1-1h3V2h-3a5 5 0 0 0-5 5v2H6v4h3v9z" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-car" viewBox="0 0 24 24">
-      <path d="M3 13l2-6h14l2 6M5 13v4m14-4v4M7.5 17a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-list" viewBox="0 0 24 24">
-      <path d="M5 6h14M5 12h14M5 18h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="i-check" viewBox="0 0 24 24">
-      <path d="M20 7l-9 10-5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-truck" viewBox="0 0 24 24">
-      <path d="M2 7h11v8H2zM13 9h5l3 3v3h-8zM6.5 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24">
-      <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12zm0-9.5a2.5 2.5 0 1 0-2.5-2.5A2.5 2.5 0 0 0 12 12.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24">
-      <path d="M12 21a9 9 0 1 1 9-9 9 9 0 0 1-9 9zm0-13v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-  </svg>
-
-  <!-- Шапка -->
+  <!-- ШАПКА -->
   <header class="nav">
-    <a href="#" class="logo">FAVMOTORS</a>
-    <nav>
-      <a href="#about">Oferta</a>
+    <div class="brand">
+      <!-- ЗАГРУЗИ: assets/logo-favmotors.png (≈220×44) и, по возможности, assets/logo-favmotors@2x.png -->
+      <a href="#top" class="brand-link">
+        <img class="brand-logo" src="assets/logo-favmotors.png"
+             srcset="assets/logo-favmotors.png 1x, assets/logo-favmotors@2x.png 2x"
+             alt="FAVMOTORS">
+      </a>
+    </div>
+
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu" id="mainMenu">
+      <a href="#about">O Nas</a>
       <a href="#offers">Oferty</a>
       <a href="#how">Jak zamówić</a>
       <a href="#contact">Kontakt</a>
     </nav>
   </header>
 
-  <!-- Hero с фон-картинкой -->
-  <section class="hero image">
+  <!-- HERO с фоном -->
+  <section class="hero image" id="top">
     <div class="hero-inner">
       <h1>FAVMOTORS — internetowy sklep z częściami samochodowymi</h1>
       <p class="sub">Jedne z najlepszych cen. Szybki dobór. Prosta obsługa.</p>
       <div class="cta">
         <a class="btn" href="#contact">Kontakt</a>
-        <a class="link" href="#about">Oferta ↓</a>
+        <a class="link" href="#about">O Nas ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- Преимущества -->
+  <!-- O NAS / преимущества -->
   <section id="about" class="section">
     <h2>Dlaczego my</h2>
     <div class="grid">
@@ -87,7 +65,7 @@
     </div>
   </section>
 
-  <!-- Oferty (карусель) -->
+  <!-- OFERTY (карусель) -->
   <div class="section-wrap-alt">
     <section id="offers" class="section alt">
       <h2>Wybrane oferty</h2>
@@ -98,25 +76,34 @@
       <div class="carousel">
         <button class="car-btn prev" aria-label="Poprzednie">‹</button>
         <div class="car-track" id="carTrack">
+          <!-- ПРИМЕРЫ (поменяешь src на свои файлы) -->
           <div class="offer-card">
-            <div class="ph" role="img" aria-label="Zdjęcie produktu"></div>
+            <div class="preview portrait">
+              <img src="assets/offers/castrol-edge-4l.webp" alt="Castrol Edge 5W-30 4L">
+            </div>
             <div class="offer-info">
               <div class="offer-name">Castrol Edge 5W-30 4L</div>
               <div class="offer-price">od 129 zł</div>
             </div>
           </div>
+
           <div class="offer-card">
-            <div class="ph" role="img" aria-label="Zdjęcie produktu"></div>
-            <div class="offer-info">
-              <div class="offer-name">Klocki hamulcowe Bosch</div>
-              <div class="offer-price">od 89 zł</div>
+            <div class="preview square">
+              <img src="assets/offers/mann-oil-filter.webp" alt="Filtr oleju MANN">
             </div>
-          </div>
-          <div class="offer-card">
-            <div class="ph" role="img" aria-label="Zdjęcie produktu"></div>
             <div class="offer-info">
               <div class="offer-name">Filtr oleju MANN</div>
               <div class="offer-price">od 29 zł</div>
+            </div>
+          </div>
+
+          <div class="offer-card">
+            <div class="preview square">
+              <img src="assets/offers/bosch-brake-pads.webp" alt="Klocki hamulcowe Bosch">
+            </div>
+            <div class="offer-info">
+              <div class="offer-name">Klocki hamulcowe Bosch</div>
+              <div class="offer-price">od 89 zł</div>
             </div>
           </div>
         </div>
@@ -125,56 +112,47 @@
     </section>
   </div>
 
-  <!-- Jak zamówić с цветными иконками -->
+  <!-- Jak zamówić -->
   <section id="how" class="section">
     <h2>Jak zamówić</h2>
     <div class="steps-grid">
-      <div class="step">
-        <span class="icon-circle i1"><svg><use href="#i-phone"/></svg></span>
-        <p><strong>Wybierz kontakt:</strong> telefon, Instagram, Facebook lub e-mail.</p>
-      </div>
-      <div class="step">
-        <span class="icon-circle i2"><svg><use href="#i-car"/></svg></span>
-        <p><strong>Przygotuj VIN</strong> i listę potrzebnych części.</p>
-      </div>
-      <div class="step">
-        <span class="icon-circle i3"><svg><use href="#i-check"/></svg></span>
-        <p><strong>Otrzymasz wycenę 2–3 wariantów</strong> (ekonomiczny / OEM / premium).</p>
-      </div>
-      <div class="step">
-        <span class="icon-circle i4"><svg><use href="#i-truck"/></svg></span>
-        <p><strong>Potwierdź i dostawa</strong>: odbiór osobisty lub wysyłka.</p>
-      </div>
+      <div class="step"><span class="icon-circle i1"></span>
+        <p><strong>Wybierz kontakt:</strong> telefon, Instagram, Facebook lub e-mail.</p></div>
+      <div class="step"><span class="icon-circle i2"></span>
+        <p><strong>Przygotuj VIN</strong> i listę potrzebnych części.</p></div>
+      <div class="step"><span class="icon-circle i3"></span>
+        <p><strong>Otrzymasz wycenę 2–3 wariantów</strong> (ekonomiczny / OEM / premium).</p></div>
+      <div class="step"><span class="icon-circle i4"></span>
+        <p><strong>Potwierdź i dostawa</strong>: odbiór osobisty lub wysyłka.</p></div>
     </div>
     <p class="muted" style="margin-top:12px;">Pytania? Doradzimy i pomożemy dobrać części.</p>
   </section>
 
-  <!-- Social media (официальные иконки) -->
+  <!-- Соцсети -->
   <section id="social" class="section">
     <h2>Jesteśmy w social media</h2>
     <p class="muted" style="text-align:center; margin-bottom:18px;">Aktualności, promocje, nowości:</p>
     <div class="social">
-  <a class="social-link" href="https://www.instagram.com/favmotors.com_pl/" target="_blank" rel="noopener" aria-label="Instagram">
-    <img class="social-img" src="assets/instagram.png" alt="" width="20" height="20"> Instagram
-  </a>
-  <a class="social-link" href="https://www.facebook.com/share/17WVWKbWKR/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-    <img class="social-img" src="assets/facebook.png" alt="" width="20" height="20"> Facebook
-  </a>
-</div>
-
+      <a class="social-link" href="https://www.instagram.com/favmotors.com_pl/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img class="social-img" src="assets/instagram.png" alt="" width="28" height="28"> Instagram
+      </a>
+      <a class="social-link" href="https://www.facebook.com/share/17WVWKbWKR/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <img class="social-img" src="assets/facebook.png" alt="" width="28" height="28"> Facebook
+      </a>
+    </div>
   </section>
 
-  <!-- Контакты с иконками -->
+  <!-- Контакты -->
   <section id="contact" class="section">
     <h2>Kontakt</h2>
     <div class="contact-grid">
-      <div class="c-item"><span class="c-ico"><svg><use href="#i-phone"/></svg></span>
+      <div class="c-item"><span class="c-ico">📞</span>
         <p><strong>Tel:</strong> <a href="tel:+48788554887">+48 788 554 887</a></p></div>
-      <div class="c-item"><span class="c-ico"><svg><use href="#i-mail"/></svg></span>
+      <div class="c-item"><span class="c-ico">✉️</span>
         <p><strong>E-mail:</strong> <a href="mailto:admin@favmotors.com">admin@favmotors.com</a></p></div>
-      <div class="c-item"><span class="c-ico"><svg><use href="#i-pin"/></svg></span>
+      <div class="c-item"><span class="c-ico">📍</span>
         <p><strong>Adres:</strong> Kraków</p></div>
-      <div class="c-item"><span class="c-ico"><svg><use href="#i-clock"/></svg></span>
+      <div class="c-item"><span class="c-ico">⏰</span>
         <p><strong>Godziny:</strong> 8:00–20:00</p></div>
     </div>
   </section>
@@ -185,22 +163,42 @@
   </footer>
 
   <script>
-    // год
+    // Год
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // тень у шапки при прокрутке
+    // Тень у шапки
     const nav = document.querySelector('.nav');
     const setNavShadow = () => { if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
     setNavShadow(); window.addEventListener('scroll', setNavShadow);
 
-    // карусель
+    // Мобильное меню
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('mainMenu');
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    // Карусель: кнопки + автопрокрутка 3с + 1 слайд на мобиле
     const track = document.getElementById('carTrack');
     const prev = document.querySelector('.car-btn.prev');
     const next = document.querySelector('.car-btn.next');
-    const step = 340;
+
+    function stepSize(){
+      const card = track.querySelector('.offer-card');
+      const gap = parseFloat(getComputedStyle(track).gap || '0');
+      return card ? card.getBoundingClientRect().width + gap : 320;
+    }
+    function go(dir){ track.scrollBy({ left: dir * stepSize(), behavior: 'smooth' }); }
+
     if (track && prev && next) {
-      prev.addEventListener('click', () => track.scrollBy({ left: -step, behavior: 'smooth' }));
-      next.addEventListener('click', () => track.scrollBy({ left:  step, behavior: 'smooth' }));
+      prev.addEventListener('click', () => go(-1));
+      next.addEventListener('click', () => go( 1));
+      // автопрокрутка
+      let auto = setInterval(() => go(1), 3000);
+      // пауза при взаимодействии
+      ['mouseenter','touchstart','focusin'].forEach(ev => track.addEventListener(ev, () => { clearInterval(auto); }));
+      ['mouseleave','touchend','focusout'].forEach(ev => track.addEventListener(ev, () => { auto = setInterval(() => go(1), 3000); }));
     }
   </script>
 </body>
