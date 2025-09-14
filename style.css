@@ -182,5 +182,6 @@ a:hover{ opacity:.85; }
   .contact-grid{ grid-template-columns:1fr; }
 }
 @media (max-width:480px){
-  .brand-logo{ height:44px; }
+  /* было 52px */
+.brand-logo{ height:60px; width:auto; display:block; }
 }
