@@ -1,186 +1,208 @@
-/* ===== ПАЛИТРА ===== */
-:root{
-  --brand:#1b191a;   /* тёмный */
-  --taupe:#827468;   /* тёплый серо-коричневый */
-  --brown:#62341a;   /* коричневый */
-  --accent:#d5612b;  /* оранжевый акцент */
-  --sand:#ecdfd4;    /* песочный фон секций */
-  --muted:#6b6b6b;
-  --bg:#ffffff; --bg-soft:#f7f7f8; --line:#ececec;
-}
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAVMOTORS — Części samochodowe</title>
+  <meta name="description" content="Internetowy sklep z częściami samochodowymi. Świetne ceny, szybki dobór po VIN, wysyłka w 24h. Kraków.">
+  <link rel="canonical" href="https://favmotors.com/">
+  <meta name="color-scheme" content="light only">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body id="top">
 
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0; color:#0b0b0b; background:var(--bg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-a{ color:inherit; text-decoration:none; }
-a:hover{ opacity:.85; }
+  <!-- ШАПКА -->
+  <header class="nav">
+    <div class="brand">
+      <a href="#top" class="brand-link" aria-label="FAVMOTORS">
+        <img class="brand-logo"
+             src="assets/logo-favmotors.png"
+             srcset="assets/logo-favmotors.png 1x, assets/logo-favmotors@2x.png 2x"
+             alt="FAVMOTORS">
+      </a>
+    </div>
 
-/* ===== ШАПКА / МЕНЮ (тёмная) ===== */
-.nav{
-  position:sticky; top:0; z-index:60;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:12px 16px;
-  background:#1b191a;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  backdrop-filter:saturate(180%) blur(8px);
-  transition: box-shadow .2s ease, background .2s ease;
-}
-.nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.18); }
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-.brand-link{ display:flex; align-items:center; gap:10px; }
-.brand-logo{ height:52px; width:auto; display:block; } /* заметный логотип */
+    <nav class="menu" id="mainMenu">
+      <a href="#about">O Nas</a>
+      <a href="#offers">Oferty</a>
+      <a href="#how">Jak zamówić</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
 
-.menu{ display:flex; gap:22px; align-items:center; }
-.menu a{ color:#fff; font-size:18px; font-weight:700; letter-spacing:.01em; }
-.menu a:hover{ opacity:.8; }
+  <!-- HERO -->
+  <section class="hero image">
+    <div class="hero-inner">
+      <h1>FAVMOTORS — internetowy sklep z częściami samochodowymi</h1>
+      <p class="sub">Jedne z najlepszych cen. Szybki dobór. Prosta obsługa.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Kontakt</a>
+        <a class="link" href="#about">O Nas ↓</a>
+      </div>
+    </div>
+  </section>
 
-/* Бургер */
-.burger{
-  display:none; width:44px; height:44px; border:1px solid rgba(255,255,255,.18);
-  border-radius:10px; background:transparent; cursor:pointer;
-  align-items:center; justify-content:center; gap:5px; flex-direction:column;
-}
-.burger span{ display:block; width:20px; height:2px; background:#fff; }
+  <!-- O NAS -->
+  <section id="about" class="section">
+    <h2>Dlaczego my</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Wysyłka w 24h</h3>
+        <p>Zamów dziś — najczęściej wyślemy tego samego lub następnego dnia.</p>
+      </div>
+      <div class="card">
+        <h3>Dobór po VIN</h3>
+        <p>Podaj VIN lub rejestrację — przygotujemy trafną wycenę.</p>
+      </div>
+      <div class="card">
+        <h3>Duży asortyment</h3>
+        <p>OEM i sprawdzone zamienniki: ATE, Bosch, Mann, Castrol, ADBL i inne.</p>
+      </div>
+    </div>
+  </section>
 
-/* Выпадающее меню на мобиле (тёмное) */
-@media (max-width: 860px){
-  .burger{ display:flex; }
-  .menu{
-    position:absolute; top:100%; left:0; right:0; background:#1b191a;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    display:none; flex-direction:column; padding:12px 16px; gap:14px;
-  }
-  .menu.open{ display:flex; }
-}
+  <!-- OFERTY -->
+  <div class="section-wrap-alt">
+    <section id="offers" class="section alt">
+      <h2>Wybrane oferty</h2>
+      <p class="muted" style="text-align:center; margin-bottom:20px;">
+        Przykładowe ceny — zapytaj o dostępność dla swojego modelu.
+      </p>
 
-/* ===== HERO (фон) ===== */
-.hero{
-  min-height:72vh; display:grid; place-items:center; text-align:center;
-  padding:84px 20px 64px; border-bottom:1px solid var(--line);
-  background:#fff;
-}
-.hero.image{
-  position:relative;
-  background-image: url('assets/hero-autoparts.png'); /* загрузи этот файл */
-  background-size: cover; background-position: center;
-}
-.hero.image::before{
-  content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(27,25,26,.40), rgba(27,25,26,.15) 45%, rgba(255,255,255,.0) 70%);
-}
-.hero-inner{ position:relative; z-index:1; }
-.hero-inner h1{
-  color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.25);
-  font-size: clamp(36px, 6.4vw, 68px); font-weight:800; letter-spacing:-0.02em; margin:0 0 12px;
-}
-.sub{ font-size:20px; color:#f5f5f5; margin:0 0 24px; text-shadow:0 1px 2px rgba(0,0,0,.2); }
-.cta{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-.btn{
-  padding:12px 20px; border-radius:12px; background:var(--accent); color:#fff; font-weight:800;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-.btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
-.link{ align-self:center; padding:12px 8px; color:#fff; }
+      <div class="carousel">
+        <button class="car-btn prev" aria-label="Poprzednie">‹</button>
 
-/* ===== СЕКЦИИ ===== */
-.section{ padding:80px 20px; max-width:1100px; margin:0 auto; }
-.section h2{ font-size:34px; text-align:center; margin:0 0 24px; color:var(--brand); }
-.section + .section{ border-top:1px solid var(--line); }
+        <div class="car-track" id="carTrack">
+          <!-- примеры — подставишь свои картинки -->
+          <div class="offer-card">
+            <div class="preview portrait">
+              <img src="assets/offers/castrol-edge-4l.webp" alt="Castrol Edge 5W-30 4L">
+            </div>
+            <div class="offer-info">
+              <div class="offer-name">Castrol Edge 5W-30 4L</div>
+              <div class="offer-price">od 129 zł</div>
+            </div>
+          </div>
 
-.grid{ display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
-.card{
-  padding:22px; border:1px solid var(--line); border-radius:16px; background:#fff;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s; text-align:center;
-}
-.card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.06); border-color:#e6e6e6; }
-.card h3{ margin:0 0 8px; font-size:20px; color:var(--taupe); }
-.card p{ margin:0; color:#333; line-height:1.6; }
+          <div class="offer-card">
+            <div class="preview square">
+              <img src="assets/offers/mann-oil-filter.webp" alt="Filtr oleju MANN">
+            </div>
+            <div class="offer-info">
+              <div class="offer-name">Filtr oleju MANN</div>
+              <div class="offer-price">od 29 zł</div>
+            </div>
+          </div>
 
-/* ===== OFERTY ===== */
-.section-wrap-alt{ background:var(--sand); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-.alt{ background:transparent; }
+          <div class="offer-card">
+            <div class="preview square">
+              <img src="assets/offers/bosch-brake-pads.webp" alt="Klocki hamulcowe Bosch">
+            </div>
+            <div class="offer-info">
+              <div class="offer-name">Klocki hamulcowe Bosch</div>
+              <div class="offer-price">od 89 zł</div>
+            </div>
+          </div>
+        </div>
 
-.carousel{ position:relative; overflow:hidden; padding:6px 0; }
-.car-track{
-  display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
-  padding:4px 4px 12px; scroll-behavior:smooth;
-}
-.car-track::-webkit-scrollbar{ height:8px; }
-.car-track::-webkit-scrollbar-thumb{ background:#d9d2c8; border-radius:8px; }
+        <button class="car-btn next" aria-label="Następne">›</button>
+      </div>
+    </section>
+  </div>
 
-.offer-card{
-  flex:0 0 300px; scroll-snap-align:start;
-  border:1px solid var(--line); border-radius:16px; background:#fff; overflow:hidden;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s;
-}
-.offer-card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,0,0,.06); border-color:#e6e6e6; }
-.preview{ width:100%; background:#f2f2f2; border-bottom:1px solid var(--line); display:grid; place-items:center; }
-.preview img{ width:100%; height:100%; object-fit:contain; }
-.preview.square{  aspect-ratio: 1 / 1; }
-.preview.portrait{aspect-ratio: 3 / 4; }
+  <!-- JAK ZAMÓWIĆ -->
+  <section id="how" class="section">
+    <h2>Jak zamówić</h2>
+    <div class="steps-grid">
+      <div class="step"><span class="icon-circle i1"></span>
+        <p><strong>Wybierz kontakt:</strong> telefon, Instagram, Facebook lub e-mail.</p></div>
+      <div class="step"><span class="icon-circle i2"></span>
+        <p><strong>Przygotuj VIN</strong> i listę potrzebnych części.</p></div>
+      <div class="step"><span class="icon-circle i3"></span>
+        <p><strong>Otrzymasz wycenę 2–3 wariantów</strong> (ekonomiczny / OEM / premium).</p></div>
+      <div class="step"><span class="icon-circle i4"></span>
+        <p><strong>Potwierdź i dostawa</strong>: odbiór osobisty lub wysyłka.</p></div>
+    </div>
+    <p class="muted" style="margin-top:12px;">Pytania? Doradzimy i pomożemy dobrać części.</p>
+  </section>
 
-.offer-info{ padding:14px 16px; display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
-.offer-name{ font-size:16px; font-weight:700; color:#222; }
-.offer-price{ font-size:16px; font-weight:800; color:var(--accent); }
+  <!-- SOCIAL -->
+  <section id="social" class="section">
+    <h2>Jesteśmy w social media</h2>
+    <p class="muted" style="text-align:center; margin-bottom:18px;">Aktualności, promocje, nowości:</p>
+    <div class="social">
+      <a class="social-link" href="https://www.instagram.com/favmotors.com_pl/" target="_blank" rel="noopener" aria-label="Instagram">
+        <img class="social-img" src="assets/instagram.png" alt="" width="28" height="28"> Instagram
+      </a>
+      <a class="social-link" href="https://www.facebook.com/share/17WVWKbWKR/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+        <img class="social-img" src="assets/facebook.png" alt="" width="28" height="28"> Facebook
+      </a>
+    </div>
+  </section>
 
-.car-btn{
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:36px; height:36px; border-radius:50%;
-  border:1px solid #e6e6e6; background:#fff; color:#222;
-  display:grid; place-items:center; cursor:pointer; box-shadow:0 6px 14px rgba(0,0,0,.06);
-}
-.car-btn:hover{ background:#f8f8f8; }
-.car-btn.prev{ left: 6px; }
-.car-btn.next{ right:6px; }
+  <!-- KONTAKT -->
+  <section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <div class="contact-grid">
+      <div class="c-item"><span class="c-ico">📞</span>
+        <p><strong>Tel:</strong> <a href="tel:+48788554887">+48 788 554 887</a></p></div>
+      <div class="c-item"><span class="c-ico">✉️</span>
+        <p><strong>E-mail:</strong> <a href="mailto:admin@favmotors.com">admin@favmotors.com</a></p></div>
+      <div class="c-item"><span class="c-ico">📍</span>
+        <p><strong>Adres:</strong> Kraków</p></div>
+      <div class="c-item"><span class="c-ico">⏰</span>
+        <p><strong>Godziny:</strong> 8:00–20:00</p></div>
+    </div>
+  </section>
 
-/* ===== Jak zamówić ===== */
-.steps-grid{ display:grid; gap:18px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
-.step{ display:flex; gap:14px; align-items:flex-start; }
-.icon-circle{ width:40px; height:40px; border-radius:999px; display:inline-block; }
-.i1{ background:var(--accent); }
-.i2{ background:var(--taupe); }
-.i3{ background:var(--brown); }
-.i4{ background:var(--brand); }
-.muted{ color:var(--muted); }
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© <span id="y"></span> FAVMOTORS • Autoczęści • Kraków</p>
+  </footer>
 
-/* ===== Social / Kontakt ===== */
-.social{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:6px; }
-.social-link{
-  display:inline-flex; align-items:center; gap:12px;
-  padding:12px 16px; border:1px solid var(--line); border-radius:14px; background:#fff;
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s; font-size:17px;
-}
-.social-link:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.06); border-color:#e6e6e6; }
-.social-img{ width:28px; height:28px; display:block; }
+  <script>
+    // Год
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-.contact-grid{ display:grid; gap:14px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
-.c-item{ display:flex; gap:12px; align-items:flex-start; }
-.c-ico{ width:28px; height:28px; display:inline-grid; place-items:center; color:var(--accent); }
-#contact p{ margin:6px 0; font-size:18px; }
+    // Тень у шапки
+    const nav = document.querySelector('.nav');
+    const setNavShadow = () => { if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    setNavShadow(); window.addEventListener('scroll', setNavShadow);
 
-/* ===== FOOTER ===== */
-.footer{
-  text-align:center; padding:28px 20px; color:#ccc;
-  background:#1b191a; border-top:1px solid rgba(255,255,255,.08);
-}
+    // Мобильное меню
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('mainMenu');
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
 
-/* ===== АДАПТИВ ===== */
-@media (max-width:1000px){
-  .grid{ grid-template-columns:1fr; }
-  .steps-grid{ grid-template-columns:1fr; }
-}
-@media (max-width:700px){
-  /* один слайд на экране */
-  .car-track{ gap:0; padding:0; }
-  .offer-card{ flex:0 0 100%; scroll-snap-align:center; }
-  .car-btn{ display:none; }
-  /* контакты — в столбик */
-  .contact-grid{ grid-template-columns:1fr; }
-}
-@media (max-width:480px){
-  .brand-logo{ height:44px; }
-}
+    // Карусель: кнопки + автопрокрутка 3с + пауза при взаимодействии
+    const track = document.getElementById('carTrack');
+    const prev = document.querySelector('.car-btn.prev');
+    const next = document.querySelector('.car-btn.next');
+
+    function stepSize(){
+      const card = track.querySelector('.offer-card');
+      const gap = parseFloat(getComputedStyle(track).gap || '0');
+      return card ? card.getBoundingClientRect().width + gap : 320;
+    }
+    function go(dir){ track.scrollBy({ left: dir * stepSize(), behavior: 'smooth' }); }
+
+    if (track && prev && next) {
+      prev.addEventListener('click', () => go(-1));
+      next.addEventListener('click', () => go( 1));
+      let auto = setInterval(() => go(1), 3000);
+      ['mouseenter','touchstart','focusin'].forEach(ev => track.addEventListener(ev, () => clearInterval(auto)));
+      ['mouseleave','touchend','focusout'].forEach(ev => track.addEventListener(ev, () => auto = setInterval(() => go(1), 3000)));
+    }
+  </script>
+</body>
+</html>
