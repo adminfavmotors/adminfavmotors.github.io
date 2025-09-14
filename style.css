@@ -32,7 +32,13 @@ a:hover{ opacity:.85; }
 .nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.18); }
 
 .brand-link{ display:flex; align-items:center; gap:10px; }
-.brand-logo{ height:60px; width:auto; display:block; }
+/* ==== ЛОГО В ШАПКЕ ==== */
+.brand-logo{ height:120px !important; width:auto; display:block; }  /* десктоп */
+@media (max-width: 860px){
+  .brand-logo{ height:72px !important; }                             /* планшет/мобайл */
+}
+/* чтобы шапка не стала «толстой» из-за внутренних отступов */
+.nav{ padding:10px 16px; }
 
 .menu{ display:flex; gap:22px; align-items:center; }
 .menu a{ color:#fff; font-size:18px; font-weight:700; letter-spacing:.01em; }
