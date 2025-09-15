@@ -22,40 +22,41 @@ a:hover{ opacity:.85; }
 /* ===== ШАПКА / МЕНЮ (тёмная) ===== */
 .nav{
   position:sticky; top:0; z-index:60;
-  background:#1b191a;
-  border-bottom:1px solid rgba(255,255,255,.08);
+  background:#1b191a;                      /* тот же цвет, что фон PNG логотипа */
+  border-bottom:1px solid rgba(255,255,255,.06);
   backdrop-filter:saturate(180%) blur(8px);
   transition: box-shadow .2s ease, background .2s ease;
 }
-/* внутренняя «рамка» для выравнивания контента */
-.nav-inner{
-  max-width:1160px; margin:0 auto;
-  padding:10px 16px;
-  display:flex; align-items:center; gap:24px;
-}
 .nav.scrolled{ box-shadow:0 8px 24px rgba(0,0,0,.18); }
 
-.brand-link{ display:flex; align-items:center; }
-.brand-logo{
-  /* SVG без фона: адаптивно, но с ограничениями, чтобы не «лопалась» шапка */
-  height: clamp(56px, 9vw, 88px);
-  width:auto; display:block; background:transparent;
+/* внутренний контейнер для ровного выравнивания */
+.nav-inner{
+  max-width:1160px; margin:0 auto;
+  padding:10px 16px;                        /* компактная высота шапки */
+  display:flex; align-items:center; gap:24px;
 }
 
-/* меню прижимаем вправо */
+.brand-link{ display:flex; align-items:center; }
+
+/* ЛОГО PNG (с фоном), сбалансированный размер */
+.brand-logo{
+  height: clamp(56px, 9vw, 88px);           /* мобайл ~56px → десктоп до 88px */
+  width:auto; display:block;
+  background:transparent;
+}
+
+/* меню прижато вправо */
 .menu{ margin-left:auto; display:flex; gap:22px; align-items:center; }
 .menu a{ color:#fff; font-size:18px; font-weight:700; letter-spacing:.01em; }
 .menu a:hover{ opacity:.8; }
 
-/* Бургер */
+/* бургер и мобильное меню — без изменений */
 .burger{
   display:none; width:44px; height:44px; border:1px solid rgba(255,255,255,.18);
   border-radius:10px; background:transparent; cursor:pointer;
   align-items:center; justify-content:center; gap:5px; flex-direction:column;
 }
 .burger span{ display:block; width:20px; height:2px; background:#fff; }
-
-/* Выпадающее меню на мобиле (тёмное) */
 @media (max-width: 860px){
   .burger{ display:flex; }
   .menu{
