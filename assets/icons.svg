@@ -1,0 +1,47 @@
+<!-- assets/icons.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- телефон -->
+  <symbol id="phone" viewBox="0 0 24 24">
+    <path d="M22 17v3a2 2 0 0 1-2 2h-1C9.2 22 2 14.8 2 5V4a2 2 0 0 1 2-2h3l2 5-2 1c1.9 3.5 4.5 6.1 8 8l1-2 5 2z"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- почта -->
+  <symbol id="mail" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2" ry="2"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- адрес / пин -->
+  <symbol id="map-pin" viewBox="0 0 24 24">
+    <path d="M12 21s-7-7.3-7-11a7 7 0 1 1 14 0c0 3.7-7 11-7 11z"
+          fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <!-- часы -->
+  <symbol id="clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M12 7v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- контакт (человек) -->
+  <symbol id="contact" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M4 20a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- галочка (точный выбор/VIN) -->
+  <symbol id="check" viewBox="0 0 24 24">
+    <path d="M20 6l-11 11L4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- список -->
+  <symbol id="list" viewBox="0 0 24 24">
+    <circle cx="5" cy="7" r="1.5" fill="currentColor"/>
+    <circle cx="5" cy="12" r="1.5" fill="currentColor"/>
+    <circle cx="5" cy="17" r="1.5" fill="currentColor"/>
+    <path d="M9 7h10M9 12h10M9 17h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+</svg>
