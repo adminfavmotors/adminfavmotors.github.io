@@ -32,7 +32,7 @@ a:hover{ opacity:.85; }
 /* внутренний контейнер для ровного выравнивания */
 .nav-inner{
   max-width:1160px; margin:0 auto;
-  padding:5px 16px;                        /* компактная высота шапки */
+  padding:5px 8px;                        /* компактная высота шапки */
   display:flex; align-items:center; gap:24px;
 }
 
