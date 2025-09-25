@@ -169,7 +169,7 @@ a:hover{ opacity:.85; }
 
 .contact-grid{ display:grid; gap:14px; grid-template-columns:repeat(2,1fr); margin-top:10px; }
 .c-item{ display:flex; gap:12px; align-items:flex-start; }
-.c-ico{ width:28px; height:28px; display:inline-grid; place-items:center; color:var(--accent); }
+.c-ico{ width:4px; height:4px; display:inline-grid; place-items:center; color:var(--accent); }
 #contact p{ margin:6px 0; font-size:18px; }
 
 /* ===== FOOTER ===== */
