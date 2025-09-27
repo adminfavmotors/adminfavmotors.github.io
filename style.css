@@ -40,7 +40,7 @@ a:hover{ opacity:.85; }
 
 /* ЛОГО PNG (с фоном), сбалансированный размер */
 .brand-logo{
-  height: clamp(56px, 9vw, 88px);           /* мобайл ~56px → десктоп до 88px */
+  height: clamp(48px, 9vw, 88px);           /* мобайл ~56px → десктоп до 88px */
   width:auto; display:block;
   background:transparent;
 }
